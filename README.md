@@ -4,7 +4,7 @@ Authors: Jun Wu(SuperJunlw), Roy Cheung(RoyCDev)
 
 Project Description: Our project will be a website that shows the trend of the current top 10 streamers. It can predict how the trend changes by using average views, followers, and other data collected from the internet. Users can limit the scope by entering the number of months they want to forecast. The trend will be displayed as a line graph and the breakdown (such as future view counts and followers) will be put into a table. Any streamers that our website predicted would become top 10 in the future will be included in the trend, even if they are not currently in the ranking. 
 
-Project Outline/Plan:
+Project Outline/Plans:
 
 - Interface Plan: The website will have a button for the user to click to get the top 10 most trend Twitch streamers of the current month. The names of the streamers, their average stream views of the month, and their current followers will be printed on the screen in a table format. There will be another button for users to click and a pop-up window will be shown. In this pop-up window, the users can see a line graph that shows the top 10 streamers' trends of the current month. The website will have an area that allows the user to enter the number of months. After the users enter the number of months, the predictions of the trends(average views and followers) of the current streamers after the number of months will be printed on the screen in a table format. After users enter the number of months, they can also click another which leads to another pop-up window. The pop-up window will show the predictions of how the trends of the current top streamers change in each month from the current to the number of months that users entered.
   
