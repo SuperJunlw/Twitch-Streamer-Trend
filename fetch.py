@@ -51,6 +51,3 @@ def fetch_top_streamers_data(x,y):
 #     fetch_top_streamers_data(5*i, 5*(i+1))
 #     time.sleep(30)
 
-
-res = requests.get("https://twitchtracker.com/xcry/streams/49681755325")
-print(res)

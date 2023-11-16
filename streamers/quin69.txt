@@ -1,2 +1,3 @@
 2023-11-13,{"rank":74,"minutes_streamed":12895,"avg_viewers":10762,"max_viewers":22090,"hours_watched":2313016,"followers":8802,"followers_total":809631}
 2023-11-14,{"rank":72,"minutes_streamed":12747,"avg_viewers":10792,"max_viewers":22090,"hours_watched":2292766,"followers":8731,"followers_total":809737}
+2023-11-15,{"rank":74,"minutes_streamed":12502,"avg_viewers":10847,"max_viewers":22090,"hours_watched":2260124,"followers":8310,"followers_total":809737}
