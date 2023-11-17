@@ -27,7 +27,7 @@ def get_top_100_streamers_data():
 def write_top_100_streamers_data():
     streamers_data = get_top_100_streamers_data()
 
-    streamers_folder_dir = os.path.join(os.getcwd(), "streamers3")
+    streamers_folder_dir = os.path.join(os.getcwd(), "streamers2")
     if not os.path.isdir(streamers_folder_dir):
         os.makedirs(streamers_folder_dir)
     
@@ -56,4 +56,4 @@ def write_top_100_streamers_data():
 
 
 # Call this code everyday
-write_top_100_streamers_data()
+# write_top_100_streamers_data()
