@@ -1,0 +1,1 @@
+{'day': '2023-11-16', 'rank': 84, 'airtime_in_m': 935, 'live_views': '927536', 'average_viewers': 23668, 'peak_viewers': 54716, 'hours_watched': 368815, 'followers_gain': 2411}

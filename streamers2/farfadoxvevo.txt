@@ -1,1 +1,2 @@
 {'day': '2023-11-15', 'rank': 62, 'airtime_in_m': 9920, 'live_views': '662402', 'average_viewers': 2844, 'peak_viewers': 12293, 'hours_watched': 470089, 'followers_gain': 7584}
+{'day': '2023-11-16', 'rank': 67, 'airtime_in_m': 8685, 'live_views': '996275', 'average_viewers': 2952, 'peak_viewers': 12293, 'hours_watched': 427217, 'followers_gain': 6904}

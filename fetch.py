@@ -2,7 +2,7 @@ import requests
 import os
 import time
 from pprint import pprint as pp
-from datetime import date
+from datetime import date, timedelta
 
 """
     get the list of top 100 streamers (and their data) in the past 7 days from StreamCharts 
@@ -36,7 +36,7 @@ def write_top_100_streamers_data():
     for i, streamer in enumerate(streamers_data):
         with open(os.path.join(streamers_folder_dir, f"{streamer['channel_name']}.txt"), "a") as f:
             
-            extract_dict = {"day": str(date.today()), "rank": i+1}
+            extract_dict = {"day": str(date.today()-timedelta(1)), "rank": i+1}
             for key in extract:
                 extract_dict[key] = streamer[key]
             # extract_dict["followers_total"] = fetch_followers_total(streamer['channel_name'])
@@ -56,4 +56,4 @@ def write_top_100_streamers_data():
 
 
 # Call this code everyday
-# write_top_100_streamers_data()
+write_top_100_streamers_data()
