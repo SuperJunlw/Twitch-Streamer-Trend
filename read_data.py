@@ -33,29 +33,49 @@ def get_top10_popularity():
     top10 = get_current_top10_streamers()
 
     top10_popularity = []
-    # extreme_stats = get_extremes_of_top10()
+    #extreme_stats = get_extremes_of_top10()
+    min_max = get_normal_min_max()
 
     for file in top10:
         stat = read_file(file)
 
-        popularity = (file[:-4], compute_popularity(stat))
-        # popularity = (file[:-4], compute_popularity(stat, extreme_stats))
+        popularity = (file[:-4], compute_popularity(stat, min_max))
+        #popularity = (file[:-4], compute_popularity(stat, extreme_stats))
 
         top10_popularity.append(popularity)
 
     return top10_popularity
 
+def get_normal_min_max():
+    top10 = get_current_top10_streamers()
+    all_value = []
 
-def compute_popularity(stat):
+    for file in top10:
+        stat = read_file(file)
+
+        all_value.append(stat['average_viewers'])
+        all_value.append(stat['peak_viewers'])
+        all_value.append(stat['hours_watched'])
+        all_value.append(stat['followers_gain'])
+
+    return (min(all_value), max(all_value))
+
+
+def compute_popularity(stat, min_max):
     value1 = stat['average_viewers']
     value2 = stat['peak_viewers']
     value3 = stat['hours_watched']
     value4 = stat['followers_gain']
 
-    normalized_value1 = (value1 - min(value1, value2, value3, value4)) / (max(value1, value2, value3, value4) - min(value1, value2, value3, value4))
-    normalized_value2 = (value2 - min(value1, value2, value3, value4)) / (max(value1, value2, value3, value4) - min(value1, value2, value3, value4))
-    normalized_value3 = (value3 - min(value1, value2, value3, value4)) / (max(value1, value2, value3, value4) - min(value1, value2, value3, value4))
-    normalized_value4 = (value4 - min(value1, value2, value3, value4)) / (max(value1, value2, value3, value4) - min(value1, value2, value3, value4))
+    normalized_value1 = (value1 - min_max[0]) / (min_max[1] - min_max[0])
+    normalized_value2 = (value2 - min_max[0]) / (min_max[1] - min_max[0])
+    normalized_value3 = (value3 - min_max[0]) / (min_max[1] - min_max[0])
+    normalized_value4 = (value4 - min_max[0]) / (min_max[1] - min_max[0])
+
+    # normalized_value1 = (value1 - min(value1, value2, value3, value4)) / (max(value1, value2, value3, value4) - min(value1, value2, value3, value4))
+    # normalized_value2 = (value2 - min(value1, value2, value3, value4)) / (max(value1, value2, value3, value4) - min(value1, value2, value3, value4))
+    # normalized_value3 = (value3 - min(value1, value2, value3, value4)) / (max(value1, value2, value3, value4) - min(value1, value2, value3, value4))
+    # normalized_value4 = (value4 - min(value1, value2, value3, value4)) / (max(value1, value2, value3, value4) - min(value1, value2, value3, value4))
 
     # Compute an overall value
     overall_value = (normalized_value1 + normalized_value2 + normalized_value3 + normalized_value4) / 4
@@ -93,14 +113,22 @@ print(get_top10_popularity())
 #     value3 = stat['hours_watched']
 #     value4 = stat['followers_gain']
 
-#     normalized_value1 = (value1 - extreme_stats[0]) / (extreme_stats[1] - extreme_stats[0])
-#     normalized_value2 = (value2 - extreme_stats[2]) / (extreme_stats[3] - extreme_stats[2])
-#     normalized_value3 = (value3 - extreme_stats[4]) / (extreme_stats[5] - extreme_stats[4])
-#     normalized_value4 = (value4 - extreme_stats[6]) / (extreme_stats[7] - extreme_stats[6])
+#     n_samevalue_value1 = (value1 - extreme_stats[0]) / (extreme_stats[1] - extreme_stats[0])
+#     n_samevalue_value2 = (value2 - extreme_stats[2]) / (extreme_stats[3] - extreme_stats[2])
+#     n_samevalue_value3 = (value3 - extreme_stats[4]) / (extreme_stats[5] - extreme_stats[4])
+#     n_samevalue_value4 = (value4 - extreme_stats[6]) / (extreme_stats[7] - extreme_stats[6])
+
+#     min_value = min(n_samevalue_value1, n_samevalue_value2, n_samevalue_value3, n_samevalue_value4)
+#     max_value = max(n_samevalue_value1, n_samevalue_value2, n_samevalue_value3, n_samevalue_value4)
+
+#     normalized_value1 = (n_samevalue_value1 - min_value) / (max_value - min_value)
+#     normalized_value2 = (n_samevalue_value2 - min_value) / (max_value - min_value)
+#     normalized_value3 = (n_samevalue_value3 - min_value) / (max_value - min_value)
+#     normalized_value4 = (n_samevalue_value4 - min_value) / (max_value - min_value)
 
 #     # Compute an overall value
 #     overall_value = (normalized_value1 + normalized_value2 + normalized_value3 + normalized_value4) / 4
 
 #     return overall_value
 
-# print(get_top10_popularity())
+#print(get_top10_popularity())
