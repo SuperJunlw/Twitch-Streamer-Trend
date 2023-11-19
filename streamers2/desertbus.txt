@@ -1,2 +1,3 @@
 {'day': '2023-11-15', 'rank': 64, 'airtime_in_m': 7320, 'live_views': None, 'average_viewers': 3772, 'peak_viewers': 5525, 'hours_watched': 460145, 'followers_gain': 1345}
 {'day': '2023-11-16', 'rank': 54, 'airtime_in_m': 8685, 'live_views': None, 'average_viewers': 3729, 'peak_viewers': 5525, 'hours_watched': 539674, 'followers_gain': 1400}
+{'day': '2023-11-17', 'rank': 40, 'airtime_in_m': 9850, 'live_views': None, 'average_viewers': 3743, 'peak_viewers': 5926, 'hours_watched': 614272, 'followers_gain': 1232}
