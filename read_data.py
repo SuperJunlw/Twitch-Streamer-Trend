@@ -82,7 +82,7 @@ def compute_popularity(stat, min_max):
 
     return overall_value
 
-print(get_top10_popularity())
+#print(get_top10_popularity())
 
 
 # Slightly different approach to calculate popularity scores
