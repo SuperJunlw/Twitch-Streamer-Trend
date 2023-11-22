@@ -1,3 +1,6 @@
 {'day': '2023-11-15', 'rank': 66, 'airtime_in_m': 2280, 'live_views': '689405', 'average_viewers': 11642, 'peak_viewers': 19091, 'hours_watched': 442353, 'followers_gain': 976}
 {'day': '2023-11-16', 'rank': 88, 'airtime_in_m': 2110, 'live_views': '601259', 'average_viewers': 10315, 'peak_viewers': 17109, 'hours_watched': 362736, 'followers_gain': 617}
 {'day': '2023-11-17', 'rank': 82, 'airtime_in_m': 2095, 'live_views': '545242', 'average_viewers': 9633, 'peak_viewers': 17109, 'hours_watched': 336337, 'followers_gain': 429}
+{'day': '2023-11-18', 'rank': 91, 'airtime_in_m': 2140, 'live_views': '487667', 'average_viewers': 9033, 'peak_viewers': 14122, 'hours_watched': 322141, 'followers_gain': 240}
+{'day': '2023-11-19', 'rank': 75, 'airtime_in_m': 2600, 'live_views': '629700', 'average_viewers': 8806, 'peak_viewers': 14122, 'hours_watched': 381554, 'followers_gain': 286}
+{'day': '2023-11-20', 'rank': 68, 'airtime_in_m': 2835, 'live_views': '628807', 'average_viewers': 8606, 'peak_viewers': 12871, 'hours_watched': 406603, 'followers_gain': 250}
