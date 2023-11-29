@@ -39,13 +39,22 @@ def compute_streamer_trend(name, min_max):
 
 def predict_popularity(num_month):
     top10_trends = compute_trends(rd.get_top10_popularity())
+
     predicted_popularity = []
-    #print(top10_trends)
+  
     for streamer in top10_trends:
         prediction = num_month * streamer[1] + streamer[2]
-        predicted_popularity.append((streamer[0], prediction))
+
+        total_popularity = streamer[2]
+        future_popularity_each_month = [total_popularity]
+
+        for i in range(0, num_month):
+            total_popularity += streamer[1]
+            future_popularity_each_month.append(total_popularity)
+            
+        predicted_popularity.append((streamer[0], prediction, future_popularity_each_month))
 
     return predicted_popularity
 
-print(predict_popularity(3))
+# print(predict_popularity(6))
 
