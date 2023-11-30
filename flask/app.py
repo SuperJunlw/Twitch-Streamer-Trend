@@ -23,7 +23,7 @@ def main():
 def current_trend():
     fig = dc.draw_bar_graph(rd.get_top10_popularity())
     data = generate_plot(fig)
-    return render_template("current.html", img=f"<img src='data:image/png;base64,{data}'/>")
+    return render_template("plot.html", img=f"<img src='data:image/png;base64,{data}'/>")
 
 
 @app.route("/forecast")
@@ -32,9 +32,9 @@ def forecast():
         months = int(request.args["months"])
         fig = dc.draw_future_trends(pd.predict_popularity(months), months)
         data = generate_plot(fig)
-        return render_template("current.html", img=f"<img src='data:image/png;base64,{data}'/>")
+        return render_template("plot.html", img=f"<img src='data:image/png;base64,{data}'/>")
     except:
-        return render_template("current.html")
+        return render_template("plot.html")
 
 
 # Apparently it's not recommanded to use mathplotlib.pyplot in Flask
@@ -42,7 +42,7 @@ def forecast():
 # This code came from the website
 def generate_plot(fig):
     buf = BytesIO()
-    fig.savefig(buf, format="png")
+    fig.savefig(buf, format="png",bbox_inches='tight')
     return base64.b64encode(buf.getbuffer()).decode("ascii")
 
 

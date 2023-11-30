@@ -16,9 +16,9 @@ def draw_bar_graph(top10_popularity):
     ax = fig.subplots()
     ax.bar(streamer_names, streamer_popularities, color=colors)
 
-    fig.supxlabel('Streamers')
-    fig.supylabel('Popularity')
-    fig.suptitle('Current Top 10 Twitch Streamers and Their Popularity')
+    fig.supxlabel('Streamers', y=0.05)
+    fig.supylabel('Popularity', x=0.05)
+    fig.suptitle('Current Top 10 Twitch Streamers and Their Popularity', y=0.91)
 
     for i, name in enumerate(streamer_names):
         ax.text(i, streamer_popularities[i], name, ha='center', va='bottom', rotation=45)
@@ -48,7 +48,7 @@ def draw_future_trends(top10_predication, num_month):
     fig.supylabel('Popularity', x=0.05)
     fig.suptitle('Popularity of Current Top 10 Twitch Streamers in the future', y=0.91)
 
-    fig.legend()
+    fig.legend(loc="center right", bbox_to_anchor=(1.05, .5))
     return fig
 
 # draw_future_trends(pd.predict_popularity(6), 6)

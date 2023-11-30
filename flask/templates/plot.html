@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Bulma!</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/plot.css')}}">
 </head>
 
 <body>
@@ -38,15 +38,15 @@
         </div>
     </nav>
 
-    <form action="/forecast" method="get">
-        <label for="months"></label>
-        <input type="number" name="months" id="months" required min=1>
-        <button>Go</button>
-    </form>
-
     {% if img %}
     {{ img|safe }}
     {% endif %}
+
+    <form action="/forecast" method="get">
+        <input class="input" type="number" name="months" id="months" placeholder="Number of months" required min=1>
+        <button class="button is-dark">Predict</button>
+    </form>
+
 </body>
 
 </html>

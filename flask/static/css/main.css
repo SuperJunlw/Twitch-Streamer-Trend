@@ -1,15 +1,17 @@
-html {
+/* html {
     background: white;
-}
+} */
 
 main {
-    margin-left: 10em;
-    margin-top: 10em;
+    height: 100vh;
     display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 main div {
-    width: 525px
+    width: 550px;
+    max-width: 800px
 }
 
 main button {
