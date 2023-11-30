@@ -2,7 +2,7 @@
     width: 20%;
 }
 
-img {
+nav+img {
     display: block;
     margin: 0 auto;
     margin-bottom: 1.5em;
