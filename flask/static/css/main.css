@@ -1,0 +1,28 @@
+html {
+    background: white;
+}
+
+main {
+    margin-left: 10em;
+    margin-top: 10em;
+    display: flex;
+}
+
+main div {
+    width: 525px
+}
+
+main button {
+    margin-top: 8em;
+}
+
+button a,
+button a:hover {
+    color: white;
+}
+
+
+#landing-img {
+    margin-top: -5em;
+    width: 500px;
+}
