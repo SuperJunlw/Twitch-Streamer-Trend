@@ -82,6 +82,24 @@ def compute_popularity(stat, min_max):
 
     return overall_value
 
+# return a list that contains all prevous data of a streamer
+def get_streamer_history(name):
+    s_name = name + '.txt'
+    filepath = os.path.join('streamers2', s_name)
+
+    with open(filepath, 'r') as file:
+        contents = file.read()
+
+    contents = contents.split('\n')[:-1]
+
+    evaulated_contents = []
+
+    for line in contents:
+        evaulated_line = ast.literal_eval(line)
+        evaulated_contents.append(evaulated_line)
+
+    return evaulated_contents
+
 #print(get_top10_popularity())
 
 
