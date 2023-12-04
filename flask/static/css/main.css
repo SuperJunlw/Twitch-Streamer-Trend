@@ -1,0 +1,30 @@
+/* html {
+    background: white;
+} */
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main div {
+    width: 550px;
+    max-width: 800px
+}
+
+main button {
+    margin-top: 8em;
+}
+
+button a,
+button a:hover {
+    color: white;
+}
+
+
+#landing-img {
+    margin-top: -5em;
+    width: 500px;
+}

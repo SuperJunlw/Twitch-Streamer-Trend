@@ -12,20 +12,22 @@ def draw_bar_graph(top10_popularity):
     streamer_popularities = [p[1] for p in sorted_popularity]
     colors = ['yellowgreen','orchid', 'lime', 'violet', 'lightgreen', 'olive', 'grey','teal', 'salmon', 'tan']
 
-    plt.bar(streamer_names, streamer_popularities, color=colors)
+    fig = Figure(figsize=(10,8))
+    ax = fig.subplots()
+    ax.bar(streamer_names, streamer_popularities, color=colors)
 
-    plt.xlabel('Streamers')
-    plt.ylabel('Popularity')
-    plt.title('Current Top 10 Twitch Streamers and Their Popularity')
+    fig.supxlabel('Streamers', y=0.05)
+    fig.supylabel('Popularity', x=0.05)
+    fig.suptitle('Current Top 10 Twitch Streamers and Their Popularity', y=0.91)
 
     for i, name in enumerate(streamer_names):
-        plt.text(i, streamer_popularities[i], name, ha='center', va='bottom', rotation=45)
+        ax.text(i, streamer_popularities[i], name, ha='center', va='bottom', rotation=45)
 
-    plt.xticks([])
+    ax.set_xticks([])
     #plt.yticks([min(streamer_popularities), max(streamer_popularities)], ["Less Popular", "Most Popular"])
 
-    plt.ylim(0, max(streamer_popularities) +0.08)
-    plt.show()
+    ax.set_ylim(0, max(streamer_popularities) +0.08)
+    return fig
 
 
 def draw_future_trends(top10_predication, num_month):
@@ -46,8 +48,7 @@ def draw_future_trends(top10_predication, num_month):
     fig.supylabel('Popularity', x=0.05)
     fig.suptitle('Popularity of Current Top 10 Twitch Streamers in the future', y=0.91)
 
-    fig.legend()
-    # plt.show()
+    fig.legend(loc="center right", bbox_to_anchor=(1.05, .5))
     return fig
 
 draw_bar_graph(rd.get_top10_popularity())

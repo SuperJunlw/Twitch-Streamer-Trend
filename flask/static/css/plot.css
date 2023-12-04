@@ -1,0 +1,14 @@
+.input {
+    width: 20%;
+}
+
+nav+img {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+
+}
+
+form {
+    text-align: center;
+}
