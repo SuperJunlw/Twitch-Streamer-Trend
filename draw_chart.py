@@ -50,4 +50,4 @@ def draw_future_trends(top10_predication, num_month):
     # plt.show()
     return fig
 
-# draw_future_trends(pd.predict_popularity(6), 6)
+draw_bar_graph(rd.get_top10_popularity())
