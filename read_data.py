@@ -1,5 +1,6 @@
 import ast
 import os
+from datetime import date, timedelta
 
 # Get and return the current stat of a streamer file
 def read_file(filename):
@@ -23,9 +24,14 @@ def get_current_top10_streamers():
         for file in files:
             current_stat = read_file(file)
 
-            if current_stat['rank'] == i+1:
-                top10.append(file)
-                break
+            today = date.today()
+            previous_date = today - timedelta(days=1)
+            formatted_date = previous_date.strftime("%Y-%m-%d")
+
+            if formatted_date == current_stat['day']:
+                if current_stat['rank'] == i+1:
+                    top10.append(file)
+                    break
 
     return top10
 
@@ -110,8 +116,7 @@ def get_streamer_history(name):
 
     return evaulated_contents
 
-#print(get_streamer_names())
-
+print(get_current_top10_streamers())
 
 # Slightly different approach to calculate popularity scores
 # Make sure to uncomment get_top10_popularity() as well

@@ -7,8 +7,8 @@ import base64
 from io import BytesIO
 
 import sys
-sys.path.append("../CS122")
-# sys.path.append('C:/Users/60298/Downloads/CS122/Project/Twitch-Streamer-Trend')
+#sys.path.append("../CS122")
+sys.path.append('C:/Users/60298/Downloads/CS122/Project/Twitch-Streamer-Trend')
 import draw_chart as dc
 import prediction as pd
 import read_data as rd
