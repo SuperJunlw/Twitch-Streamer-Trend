@@ -1,6 +1,6 @@
 import ast
 import os
-from datetime import date, timedelta
+from datetime import date, datetime
 
 # Get and return the current stat of a streamer file
 def read_file(filename):
@@ -21,17 +21,20 @@ def get_current_top10_streamers():
     top10 = []
 
     for i in range(10):
+
+        lastest_file = None
+        
         for file in files:
             current_stat = read_file(file)
 
-            today = date.today()
-            previous_date = today - timedelta(days=1)
-            formatted_date = previous_date.strftime("%Y-%m-%d")
+            lastest_day = date(2000, 1, 1)
+            current_date = datetime.strptime(current_stat['day'], "%Y-%m-%d").date()
 
-            if formatted_date == current_stat['day']:
-                if current_stat['rank'] == i+1:
-                    top10.append(file)
-                    break
+            if current_stat['rank'] == i+1:
+                if current_date > lastest_day:
+                    lastest_file = file
+
+        top10.append(lastest_file)
 
     return top10
 
