@@ -51,4 +51,21 @@ def draw_future_trends(top10_predication, num_month):
     fig.legend(loc="center right", bbox_to_anchor=(1.05, .5))
     return fig
 
-draw_bar_graph(rd.get_top10_popularity())
+def draw_future_trend_uno(top10_predication, num_month, name):
+    months = np.arange(0, num_month+1, 1)
+
+    fig = Figure(figsize=(10,8))
+    ax = fig.subplots()
+
+    for streamer in top10_predication:
+        if streamer[0] == name:
+            future_trend = np.array(streamer[2])
+            ax.plot(months, future_trend, label=streamer[0], color='blue')
+            break
+
+    fig.supxlabel('Each Month from Now', y=0.05)
+    fig.supylabel('Popularity', x=0.05)
+    fig.suptitle('Popularity of Current Top 10 Twitch Streamers in the future', y=0.91)
+
+    return fig
+    

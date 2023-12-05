@@ -29,6 +29,16 @@ def get_current_top10_streamers():
 
     return top10
 
+def get_streamer_names():
+    top10 = get_top10_popularity()
+
+    top10_names = ['All']
+
+    for streamer in top10:
+        top10_names.append(streamer[0])
+
+    return top10_names
+
 def get_top10_popularity():
     top10 = get_current_top10_streamers()
 
@@ -100,7 +110,7 @@ def get_streamer_history(name):
 
     return evaulated_contents
 
-#print(get_top10_popularity())
+#print(get_streamer_names())
 
 
 # Slightly different approach to calculate popularity scores

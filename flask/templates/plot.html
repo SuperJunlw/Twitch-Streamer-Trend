@@ -44,6 +44,19 @@
 
     <form action="/forecast" method="get">
         <input class="input" type="number" name="months" id="months" placeholder="Number of months" required min=1>
+        <select name="streamers" id="streamers">
+            <!--Add an option on start-up for when countries are not selected -->
+            <!-- {% if country!='default' %}
+            <option value="default" selected disabled>Select</option>
+            {% else %}
+            <option value="{{country}}">{{country}}</option>
+            {% endif %} -->
+            <!--populate the drop-down menu with country name using for loop with jinja-->
+            {% for streamer in streamer_names %}
+              <option value="{{streamer}}">{{streamer}}</option>
+            {% endfor %}
+      
+          </select>
         <button class="button is-dark">Predict</button>
     </form>
 
