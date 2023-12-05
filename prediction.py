@@ -52,7 +52,7 @@ def predict_popularity(num_month):
             total_popularity += streamer[1]
             future_popularity_each_month.append(total_popularity)
             
-        predicted_popularity.append((streamer[0], prediction, future_popularity_each_month))
+        predicted_popularity.append((streamer[0], prediction, future_popularity_each_month, streamer[1]))
 
     return predicted_popularity
 
