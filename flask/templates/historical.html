@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Twitch Trend</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/plot.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
 </head>
 
 <body>
@@ -38,23 +38,52 @@
         </div>
     </nav>
 
-    {% if img %}
-    {{ img|safe }}
-    {% endif %}
-
-    <form action="/forecast" method="get">
-        <input class="input" type="number" name="months" id="months" placeholder="Number of months" required min=1>
-
+    <form action="/historical" method="get">
         <div class="select">
             <select name="streamers" id="streamers">
+                {% if not stats %}
+                <option value="" disabled selected>Choose a streamer</option>
+
+                {% else %}
+                <option value="{{option}}" disabled selected>{{option}}</option>
+                {% endif %}
+
                 {% for streamer in streamer_names %}
                 <option value="{{streamer}}">{{streamer}}</option>
                 {% endfor %}
             </select>
         </div>
 
-        <button class="button is-dark">Predict</button>
+        <button class="button is-dark">Display historical data</button>
     </form>
+
+    <p>***Missing data from 11/25, 11/29, 12/1 :(</p>
+    <br>
+
+    <table class="table is-striped is-hoverable is-fullwidth">
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Rank</th>
+                <th>Airtime (m)</th>
+                <th>Live views</th>
+                <th>Average viewers</th>
+                <th>Peak viewers</th>
+                <th>Hours watched</th>
+                <th>Followers gain</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for stat in stats %}
+            <tr>
+                {% for key in stat %}
+                <td>{{stat[key]}}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
 </body>
 

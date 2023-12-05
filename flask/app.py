@@ -42,7 +42,17 @@ def forecast():
         return render_template("plot.html", img=f"<img src='data:image/png;base64,{data}'/>", streamer_names=streamer_names)
     except:
         return render_template("plot.html", streamer_names=streamer_names)
-
+    
+@app.route("/historical")
+def historical():
+    streamer_names = rd.get_streamer_names()
+    streamer_names.pop(0)
+    try:
+        option = request.args["streamers"]
+        stats = rd.get_streamer_history(option)
+        return render_template("historical.html", stats=stats, streamer_names=streamer_names, option=option)
+    except:
+        return render_template("historical.html", streamer_names=streamer_names)
 
 # Apparently it's not recommanded to use mathplotlib.pyplot in Flask
 # More details on https://matplotlib.org/stable/gallery/user_interfaces/web_application_server_sgskip.html
