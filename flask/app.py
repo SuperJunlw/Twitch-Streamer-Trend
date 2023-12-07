@@ -7,19 +7,20 @@ import base64
 from io import BytesIO
 
 import sys
-sys.path.append("../CS122")
-# sys.path.append('C:/Users/60298/Downloads/CS122/Project/Twitch-Streamer-Trend')
+#sys.path.append("../CS122")
+sys.path.append('C:/Users/60298/Downloads/CS122/Project/Twitch-Streamer-Trend') # Change this line to where you store the project folder
 import draw_chart as dc
 import prediction as pd
 import read_data as rd
 
 app = Flask(__name__)
 
+# Render home page
 @app.route("/")
 def main():
     return render_template("main.html")
 
-
+# Render current page (bar graph of current top 10)
 @app.route("/current", methods=["GET"])
 def current_trend():
     streamer_names = rd.get_streamer_names()
@@ -27,22 +28,27 @@ def current_trend():
     data = generate_plot(fig)
     return render_template("plot.html", img=f"<img src='data:image/png;base64,{data}'/>",streamer_names=streamer_names)
 
-
+# Render forecase page (plot for future trend)
 @app.route("/forecast")
 def forecast():
     streamer_names = rd.get_streamer_names()
     try:
         months = int(request.args["months"])
         option = request.args["streamers"]
+
+        # Plot trend for all streamer or just one display user's selection in the drop down menu
         if option == 'All':
             fig = dc.draw_future_trends(pd.predict_popularity(months), months)
         else:
             fig = dc.draw_future_trend_uno(pd.predict_popularity(months), months, option)
+
         data = generate_plot(fig)
         return render_template("plot.html", img=f"<img src='data:image/png;base64,{data}'/>", streamer_names=streamer_names)
     except:
         return render_template("plot.html", streamer_names=streamer_names)
-    
+
+
+# Render historical page  
 @app.route("/historical")
 def historical():
     streamer_names = rd.get_streamer_names()

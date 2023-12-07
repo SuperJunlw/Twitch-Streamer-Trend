@@ -45,15 +45,5 @@ def write_top_100_streamers_data():
             f.write("\n")
 
 
-"""
-    Please only fetch a few each time. API request won't work if you overburden the provider 
-"""
-
-# def fetch_followers_total(streamer):
-#     res = requests.get(f"https://twitchtracker.com/api/channels/summary/{streamer}")
-#     time.sleep(6)
-#     return res.json()["followers_total"]
-
-
 # Call this code everyday
 write_top_100_streamers_data()
