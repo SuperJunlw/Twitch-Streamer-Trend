@@ -1,5 +1,7 @@
 # Twitch Streamer Trend
 
+To run the website on the local server, change the sys.path.append(to/where/you/store/project/folder), then run app.py
+
 Authors: Jun Wu(SuperJunlw), Roy Cheung(RoyCDev)
 
 Project Description: Our project will be a website that shows the trend of the current top 10 streamers. It can predict how the trend changes by using average views, followers, and other data collected from the internet. Users can limit the scope by entering the number of months they want to forecast. The trend will be displayed as a line graph and the breakdown (such as future view counts and followers) will be put into a table. Any streamers that our website predicted would become top 10 in the future will be included in the trend, even if they are not currently in the ranking. 
